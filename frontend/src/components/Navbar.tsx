@@ -43,6 +43,8 @@ const Navbar = () => {
         </button>
         <Button text="Start for free" />
       </div>
+
+      
     </header>
   );
 };

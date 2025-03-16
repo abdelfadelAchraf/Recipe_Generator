@@ -10,7 +10,7 @@ const Button: React.FC<ButtonProps> = ({ text, className = "", style }) => {
   return (
     <button
       className={`py-2 px-4 cursor-pointer hover:bg-gray-700 bg-red-400 rounded-full text-white hover:shadow-2xl shadow-red-400 ${className}`}
-      style={style} // Applying inline styles
+      style={style} 
     >
       {text}
     </button>
