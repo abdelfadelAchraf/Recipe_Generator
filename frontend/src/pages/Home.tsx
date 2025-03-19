@@ -1,6 +1,7 @@
 import Button from "../components/common/button"
 import Carousel from "../components/common/Carousel "
 import Title from "../components/common/Title"
+import Scrolling from "../components/Scrolling"
 
 const Home = () => {
   return (
@@ -10,6 +11,7 @@ const Home = () => {
         <Button text="start for free" className="py-4 px-16 text-2xl transition-all duration-75"/>
         <Carousel/>
         <Title text1={"Create any recipe faster and better"} text2={"integrate AI in your daily recipes"}/>
+      <Scrolling/>
     </div>
   )
 }

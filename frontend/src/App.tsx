@@ -1,3 +1,4 @@
+import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 import './index.css'
 import Home from './pages/Home'
@@ -6,10 +7,10 @@ function App() {
 
   return (
     
-      <div className='h-screen w-full p-3'>
+      <div className=' w-full text-center '>
         <Navbar/>
        <Home/> 
-
+        <Footer/>
       </div>
   )
 }

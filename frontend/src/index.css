@@ -2,4 +2,7 @@
 
 *{
     font-weight: bold;
+    & p{
+        font-weight: lighter;
+    }
 }
