@@ -96,8 +96,8 @@ const Scrolling: React.FC<Props> = ({
             }}
             className="min-h-screen flex flex-col justify-center"
           >
-            <h1 className="text-4xl font-bold mb-4 uppercase">{section.heading}</h1>
-            <p className="text-lg text-gray-700 ">{section.description}</p>
+            <h1 className="text-4xl font-bold mb-4 uppercase text-white">{section.heading}</h1>
+            <p className="text-lg text-white/60 ">{section.description}</p>
             <Button text='learn more' className='mt-4 py-4 rounded-lg w-1/2 '/>
           </div>
         ))}
