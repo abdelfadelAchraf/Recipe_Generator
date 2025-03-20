@@ -1,4 +1,4 @@
-import { assets } from "../assets/assets";
+import { assets, POSTS } from "../assets/assets";
 import Button from "../components/common/button";
 import Title from "../components/common/Title";
 
@@ -29,16 +29,19 @@ function Testimonials({}: Props) {
 
       {/* Testimonials Section */}
       <div className="grid md:grid-cols-2 gap-6 w-full max-w-4xl">
-        <div className="flex flex-col bg-white/10 p-6 rounded-lg shadow-md space-y-4">
+       
+       {
+        POSTS.map((post , index)=>(
+          <div key={index} className="flex flex-col bg-white/10 p-6 rounded-lg shadow-md space-y-4">
           <div className="flex items-center gap-3">
             <img src={assets.photo1} alt="" className="w-12 h-12 rounded-full" />
             <div>
-              <h1 className="text-2xl text-white font-bold">John Doe</h1>
-              <p className="text-white text-opacity-80">Content Creator</p>
+              <h1 className="text-2xl text-white font-bold">{post.author}</h1>
+              <p className="text-white text-opacity-80">{post.speciality}</p>
             </div>
           </div>
           <p className="text-white text-opacity-90 text-left">
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, minima! Eum maiores, ea dolorum veritatis non aliquam doloremque."
+          {post.text}
           </p>
            <video className="rounded-lg shadow-md w-full h-64 bg-black" controls>
           <source src="" type="video/mp4" />
@@ -46,22 +49,9 @@ function Testimonials({}: Props) {
         </video>
         </div>
 
-        <div className="flex flex-col bg-white/10 p-6 rounded-lg shadow-md space-y-4">
-          <div className="flex items-center gap-3">
-            <img src={assets.photo1} alt="" className="w-12 h-12 rounded-full" />
-            <div>
-              <h1 className="text-2xl text-white font-bold">John Doe</h1>
-              <p className="text-white text-opacity-80">Content Creator</p>
-            </div>
-          </div>
-          <p className="text-white text-opacity-90 text-left">
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, minima! Eum maiores, ea dolorum veritatis non aliquam doloremque."
-          </p>
-           <video className="rounded-lg shadow-md w-full h-64 bg-black" controls>
-          <source src="" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        </div>
+        ))
+       }
+       
 
        
       </div>

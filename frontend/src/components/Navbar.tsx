@@ -12,8 +12,8 @@ const NAVBAR_LINKS = [
     link :"/testimonials"
   } ,
   {
-    title :"guide" ,
-    link :"/guide"
+    title :"contact" ,
+    link :"/contact"
   } ,
   {
     title :"pricing" ,
@@ -57,10 +57,10 @@ const Navbar = () => {
 
       {/* Buttons (Login + CTA) */}
       <div className="hidden sm:flex items-center gap-4">
-        <button className="py-2 px-4 cursor-pointer border  bg-transparent rounded-full text-white  hover:bg-gray-700 ">
+        {/* <NavLink to={"/login"}><button className="py-2 px-4 cursor-pointer border  bg-transparent rounded-full text-white  hover:bg-gray-700 ">
           Login
-        </button>
-        <Button text="Start for free" />
+        </button></NavLink> */}
+        <NavLink to={"/create-account"}><Button text="Start for free" /></NavLink>
       </div>
 
       

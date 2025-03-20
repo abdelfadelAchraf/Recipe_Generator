@@ -4,9 +4,10 @@ import Navbar from './components/Navbar'
 import './index.css'
 import Home from './pages/Home'
 import About from './pages/About'
-import Testimonials from './pages/testimonials'
-import Guide from './pages/Guide'
+import Testimonials from './pages/Testimonials'
 import Pricing from './pages/Pricing'
+import Contact from './pages/Contact'
+import CreateAccount from './pages/CreateAccount'
 
 function App() {
 
@@ -17,9 +18,11 @@ function App() {
       <Routes>
       <Route path="/" element={<Home/>} />
       <Route path="/about" element={<About/>} />
-      <Route path="/Testimonials" element={<Testimonials/>} />
-      <Route path="/guide" element={<Guide/>} />
+      <Route path="/testimonials" element={<Testimonials/>} />
+      <Route path="/contact" element={<Contact/>} />
       <Route path="/pricing" element={<Pricing/>} />
+      <Route path="/create-account" element={<CreateAccount/>} />
+
 
       </Routes>
       <Footer />

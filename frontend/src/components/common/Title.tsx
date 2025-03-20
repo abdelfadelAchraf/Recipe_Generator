@@ -8,7 +8,7 @@ type Props = {
 function Title({text1 , text2 , className}: Props) {
   return (
     <div className="py-3  ">
-      <div className={`mt-9 flex flex-col items-center justify-center `}>
+      <div className={`mt-2 flex flex-col items-center justify-center `}>
         {/* <h1>Create any recipe faster and better</h1> */}
         {/* <p>integrate AI in your daily recipes</p> */}
         <h1 className={`text-4xl text-balance text-white uppercase  ${className}`}>{text1}</h1>
