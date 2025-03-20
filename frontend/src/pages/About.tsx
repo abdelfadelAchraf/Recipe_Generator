@@ -4,9 +4,9 @@ import Title from "../components/common/Title";
 
 const About: React.FC = () => {
   return (
-    <section className="container mx-auto px-6 py-12 h-screen">
+    <section className="container mx-auto px-6 py-12  bg-white/10 h-fit w-full my-4 rounded-md">
       {/* Title */}
-      <Title text1="About" text2="Us" className="text-6xl text-red-400" />
+      <Title text1="About" text2="Us"className="text-9xl hover:text-red-400 transition-all duration-300" />
 
       {/* Content */}
       <div className="grid md:grid-cols-2 gap-8 items-center mt-8">
@@ -19,7 +19,7 @@ const About: React.FC = () => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
             tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
           </p>
-          <Button text="Contact Us" className="w-full py-4 rounded-lg text-2xl"/>
+          <Button  text="Contact Us" className="w-full py-4 rounded-lg text-2xl"/>
         </div>
 
         {/* Right Side - Image */}
