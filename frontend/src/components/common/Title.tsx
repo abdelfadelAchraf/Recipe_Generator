@@ -11,7 +11,7 @@ function Title({text1 , text2 , className}: Props) {
       <div className={`mt-2 flex flex-col items-center justify-center `}>
         {/* <h1>Create any recipe faster and better</h1> */}
         {/* <p>integrate AI in your daily recipes</p> */}
-        <h1 className={`text-4xl text-balance text-white uppercase  ${className}`}>{text1}</h1>
+        <h1 className={` text-4xl text-balance text-white uppercase  ${className}`}>{text1}</h1>
         <p className="text-2xl mt-3 text-white/60">{text2} </p>
     </div>
     </div>

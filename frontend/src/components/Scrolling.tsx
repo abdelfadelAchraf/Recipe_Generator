@@ -45,11 +45,28 @@ const Scrolling: React.FC<Props> = ({
 }) => {
   const [activeSection, setActiveSection] = useState<string>(sections[0].id);
   const sectionRefs = useRef<{[key: string]: HTMLDivElement | null}>({});
+  const scrollPositionRef = useRef<number>(0);
+  const isHoveringRef = useRef<boolean>(false);
+  
+  // Track the last scroll position before hover
+  const handleMouseEnter = () => {
+    isHoveringRef.current = true;
+    scrollPositionRef.current = window.scrollY;
+  };
+  
+  const handleMouseLeave = () => {
+    isHoveringRef.current = false;
+    // We don't reset the scroll position here - let the scroll handler continue from current position
+  };
 
   useEffect(() => {
     // Function to check which section is currently in view
     const handleScroll = () => {
+      // Don't update active section if user is hovering
+      if (isHoveringRef.current) return;
+      
       const scrollPosition = window.scrollY + window.innerHeight / 3;
+      scrollPositionRef.current = window.scrollY; // Store current scroll position
       
       // Find which section is currently visible
       let currentSection = sections[0].id;
@@ -84,7 +101,7 @@ const Scrolling: React.FC<Props> = ({
   }, [sections, activeSection]);
 
   return (
-    <div className="flex flex-col w-full p-6 md:flex-row min-h-screen ">
+    <div className="flex flex-col w-full p-6 md:flex-row min-h-screen">
       {/* Left div containing scrolling text sections */}
       <div className="w-full md:w-1/2 p-4 text-left">
         {sections.map((section) => (
@@ -97,14 +114,18 @@ const Scrolling: React.FC<Props> = ({
             className="min-h-screen flex flex-col justify-center"
           >
             <h1 className="text-4xl font-bold mb-4 uppercase text-white">{section.heading}</h1>
-            <p className="text-lg text-white/60 ">{section.description}</p>
-            <Button text='learn more' className='mt-4 py-4 rounded-lg w-1/2 '/>
+            <p className="text-lg text-white/60">{section.description}</p>
+            <Button text='learn more' className='mt-4 py-4 rounded-lg w-1/2'/>
           </div>
         ))}
       </div>
       
       {/* Right div containing images - fixed position on desktop */}
-      <div className="hidden md:flex w-full sticky top-0 h-screen items-center justify-center p-6">
+      <div 
+        className="hidden md:flex w-full sticky top-0 h-screen items-center justify-center p-6"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
         {sections.map((section) => (
           <div 
             key={section.id}
@@ -115,7 +136,7 @@ const Scrolling: React.FC<Props> = ({
             <img 
               src={section.imageUrl} 
               alt={section.heading}
-              className="max-w-full h-full object-contain rounded-lg shadow-lg"
+              className="max-w-full h-full object-contain rounded-lg shadow-lg pointer-events-none"
             />
           </div>
         ))}

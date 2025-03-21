@@ -2,11 +2,11 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-10 w-full">
+    <footer className="bg-transperant border-0 border-t-2 border-red-50/5 text-white py-10 w-full mt-3">
       {/* Contenu supérieur */}
       <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-6">
         <div className="w-full bg-red-50/5 rounded-md p-3">
-          <h2 className="text-6xl uppercase text-red-500">Recipe </h2>
+          <h2 className="text-6xl uppercase text-red-500 font_boldonse">Recipe </h2>
           <p className="text-gray-400 font-bold text-lg">
             Smart cooking starts here!
           </p>

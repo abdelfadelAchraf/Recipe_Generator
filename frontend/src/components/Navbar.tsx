@@ -26,7 +26,7 @@ const Navbar = () => {
   return (
     <header className="flex items-center justify-between py-3 px-4 max-w-[1200px] mx-auto">
       {/* Logo */}
-      <h1 className="text-4xl text-white font-bold"><NavLink to={"/"}>LOGO</NavLink></h1>
+      <h1  className=" font_boldonse text-4xl text-white font-bold"><NavLink to={"/"}>LOGO</NavLink></h1>
 
       {/* Mobile Menu Button */}
       <button 
