@@ -9,6 +9,7 @@ import Testimonials from './pages/Testimonials';
 import Pricing from './pages/Pricing';
 import Contact from './pages/Contact';
 import CreateAccount from './pages/CreateAccount';
+import RecipeGenerator from './pages/RecipeGenerator';
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -59,6 +60,7 @@ function App() {
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/create-account" element={<CreateAccount />} />
+            <Route path="/createRecipe" element={<RecipeGenerator />} />
           </Routes>
         )}
       </main>
