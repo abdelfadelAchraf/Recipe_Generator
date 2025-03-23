@@ -26,7 +26,7 @@
 
 // src/index.ts
 import express from "express";
-import { handleRecipeGeneration } from "./services/recipeGenerator";
+import { getAllRecipes, handleRecipeGeneration } from "./services/recipeGenerator";
 import dotenv from "dotenv";
 import cors from "cors";
 dotenv.config();
@@ -36,6 +36,7 @@ app.use(cors());
 app.use(express.json());
 
 app.post('/api/generate-recipes', handleRecipeGeneration);
+app.get('/api/recipes', getAllRecipes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

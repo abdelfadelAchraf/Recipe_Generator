@@ -43,7 +43,7 @@ const InfiniteCarousel = () => {
         >
           {images.concat(images).map((src, index) => (
             <motion.div key={index} className="min-w-[400px] min-h-[200px] md:min-w-[400px] p-2 h-auto">
-              <img
+              <img 
                 src={src}
                 alt={`Slide ${index}`}
                 className="w-full  h-full rounded-lg shadow-md"

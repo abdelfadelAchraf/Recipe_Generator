@@ -46,13 +46,13 @@ export async function generateRecipes(ingredients: string[]): Promise<IRecipe[]>
   try {
     const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
     
-    const prompt = `Generate 2 different Moroccan recipes using some or all of these ingredients : ${ingredients.join(', ')}. 
+    const prompt = `Generate 2 different Moroccan recipes in French using some or all of these ingredients : ${ingredients.join(', ')}. 
     Return the response as a JSON array with each recipe object having the following structure:
     {
       "title": "Recipe Name",
       "ingredients": ["ingredient1 with quantity", "ingredient2 with quantity", ...],
-      "prepTime": "time in minutes",
-      "cookTime": "time in minutes",
+      "prepTime": "time in minutes , add the word "mins" in the end,
+      "cookTime": "time in minutes add the word "mins" in the end",
       "servings": number,
       "steps": ["step1", "step2", ...],
       "tags": ["tag1", "tag2", ...]
@@ -93,6 +93,16 @@ export async function handleRecipeGeneration(req: Request, res: Response): Promi
     const recipes = await generateRecipes(ingredients);
     res.status(200).json({ success: true, recipes });
   } catch (error: any) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+// In your backend recipeGenerator.ts
+export async function getAllRecipes(req: Request, res: Response): Promise<void> {
+  try {
+    const recipes = await Recipe.find().sort({ createdAt: -1 }).limit(20);
+    res.status(200).json({ success: true, recipes });
+  } catch (error: any) {
+    console.error("Error fetching recipes:", error);
     res.status(500).json({ success: false, error: error.message });
   }
 }
