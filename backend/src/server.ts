@@ -26,17 +26,22 @@
 
 // src/index.ts
 import express from "express";
-import { getAllRecipes, handleRecipeGeneration } from "./services/recipeGenerator";
+import { getAllRecipes } from "./services/recipeGenerator";
 import dotenv from "dotenv";
 import cors from "cors";
+import connectDB from "./config/db";
+import recipeRouter from "./routes/RecipeRouter";
 dotenv.config();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+// -------------connect to DATABASE
+connectDB();
 
-app.post('/api/generate-recipes', handleRecipeGeneration);
+app.use('/api/' , recipeRouter)
+// app.post('/api/generate-recipes', handleRecipeGeneration);
 app.get('/api/recipes', getAllRecipes);
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

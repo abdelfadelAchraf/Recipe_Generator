@@ -10,6 +10,8 @@ import Pricing from './pages/Pricing';
 import Contact from './pages/Contact';
 import CreateAccount from './pages/CreateAccount';
 import RecipeGenerator from './pages/RecipeGenerator';
+import RecipeDetails from './pages/RecipeDetails';
+
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -22,7 +24,7 @@ function App() {
     // Simulate loading delay
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1000);
+    }, 1100);
     
     return () => clearTimeout(timer);
   }, [location.pathname]);
@@ -61,6 +63,8 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/create-account" element={<CreateAccount />} />
             <Route path="/createRecipe" element={<RecipeGenerator />} />
+
+            <Route path="/recipe/:id" element={<RecipeDetails />} />
           </Routes>
         )}
       </main>

@@ -5,13 +5,7 @@ import dotenv from "dotenv";
 import { Request, Response } from "express";
 
 dotenv.config();
-// Add this near the top of your recipeGenerator.ts file
-// dotenv.config();
-console.log("MONGODB_URI from env:", process.env.MONGODB_URI);
-// Connect to MongoDB
-mongoose.connect(process.env.MONGO_DB_URI || "")
-  .then(() => console.log("Connected to MongoDB"))
-  .catch(err => console.error("MongoDB connection error:", err));
+
 
 // Define Recipe interface
 interface IRecipe {
@@ -46,7 +40,7 @@ export async function generateRecipes(ingredients: string[]): Promise<IRecipe[]>
   try {
     const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
     
-    const prompt = `Generate 2 different Moroccan recipes in French using some or all of these ingredients : ${ingredients.join(', ')}. 
+    const prompt = `Generate one Moroccan recipes in French using some or all of these ingredients : ${ingredients.join(', ')}. 
     Return the response as a JSON array with each recipe object having the following structure:
     {
       "title": "Recipe Name",
@@ -82,20 +76,7 @@ export async function generateRecipes(ingredients: string[]): Promise<IRecipe[]>
   }
 }
 
-// Express API handler (if using Express)
-export async function handleRecipeGeneration(req: Request, res: Response): Promise<void> {
-  try {
-    const { ingredients } = req.body;
-    if (!ingredients || !Array.isArray(ingredients) || ingredients.length === 0) {
-      res.status(400).json({ error: "Please provide a non-empty array of ingredients" });
-    }
-    
-    const recipes = await generateRecipes(ingredients);
-    res.status(200).json({ success: true, recipes });
-  } catch (error: any) {
-    res.status(500).json({ success: false, error: error.message });
-  }
-}
+
 // In your backend recipeGenerator.ts
 export async function getAllRecipes(req: Request, res: Response): Promise<void> {
   try {

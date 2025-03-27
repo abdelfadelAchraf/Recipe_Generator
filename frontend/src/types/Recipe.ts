@@ -1,5 +1,6 @@
 // src/types/Recipe.ts
 export interface Recipe {
+    [x: string]: ReactNode;
     _id: string;
     title: string;
     ingredients: string[];
